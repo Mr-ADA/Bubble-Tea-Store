@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/title_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="@string/title"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="723dp"
+        android:layout_below="@+id/title_linear_layout"
+        android:layout_marginBottom="-300dp"
+        android:background="#63E044">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_payment_balance"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="-70dp"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_payment_balance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_your_order_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:text="Your Order"
+                    android:textColor="#000000"
+                    android:textSize="26sp" />
+
+                <TableLayout
+                    android:id="@+id/tl_list_of_my_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_your_order_confirm"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_order"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/cv_payment_balance"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="Confirm"
+            android:textColor="#000000" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bubble Tea Store</string>
+    <string name="title">Bubble Tea Shop</string>
+    <string name="number_of_balance">Number of Balance</string>
+    <string name="menu_green_bbt">Green Bubble Tea</string>
+    <string name="product_price">$8</string>
+</resources>
