@@ -1,5 +1,6 @@
 package com.example.bubbleteastore;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -21,8 +22,16 @@ public class ConfirmOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_order);
+        hideActionBar();
+
         myOrders = myProduct.getOrderList();
         createOrderItems(myOrders);
+    }
+
+    private void hideActionBar(){
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.hide();
     }
 
     @SuppressLint("SetTextI18n")

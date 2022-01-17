@@ -69,7 +69,7 @@ public class Home extends AppCompatActivity {
         listLayoutManager = new LinearLayoutManager(this);
         orderList.setLayoutManager(listLayoutManager);
 
-        orderAdapter = new OrderAdapter(this, orders);
+        orderAdapter = new OrderAdapter(Home.this, orders);
         orders.addAll(bbtOrders);
 
         for(int counter = 0; counter < orders.size(); counter++){

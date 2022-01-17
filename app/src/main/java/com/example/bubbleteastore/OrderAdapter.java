@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder>{
@@ -47,13 +48,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.productName.setText(tea.getProductName());
         holder.productPrice.setText("$"+tea.getPrice());
         holder.productQuantity.setText(Integer.toString(orderQuantity));
+        order.setQuantity(Integer.parseInt(holder.productQuantity.getText().toString()));
 
         holder.customizeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CustomizeBubbleTea.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("getOrder", (Parcelable) order);
+                intent.putExtra("getOrder", order);
                 context.startActivity(intent);
             }
         });
