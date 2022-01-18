@@ -37,6 +37,8 @@ public class Home extends AppCompatActivity {
         initMenu();
         goToMenu();
         createRecyclerView();
+        Order myOrder = getBBTCustomization();
+        changeOrderList(myOrder);
         goToConfirmation();
     }
 
@@ -72,10 +74,6 @@ public class Home extends AppCompatActivity {
         orderAdapter = new OrderAdapter(Home.this, orders);
         orders.addAll(bbtOrders);
 
-        for(int counter = 0; counter < orders.size(); counter++){
-            Log.d("TEST LIST OF ORDERS", orders.get(counter).getBbt().getProductName());
-        }
-
         orderAdapter.notifyDataSetChanged();
         orderList.setAdapter(orderAdapter);
     }
@@ -108,5 +106,28 @@ public class Home extends AppCompatActivity {
                 startActivity(orderIntent);
             }
         });
+    }
+
+    private void changeOrderList(Order order){
+        for(Order currentOrder: bbtOrders){
+            if(currentOrder == order){
+                currentOrder = order;
+            }
+        }
+
+        for(Order currentOrder: bbtOrders){
+            Log.d("Orders", "Orders: " +
+                    currentOrder.getBbt().getProductName()+"\n"+
+                    currentOrder.getQuantity()+"\n"+
+                    currentOrder.getIceLevel()+"\n"+
+                    currentOrder.getSize()+"\n"+
+                    currentOrder.getSugarLevel()+"\n");
+        }
+    }
+
+    private Order getBBTCustomization(){
+        Intent myIntent = getIntent();
+        Order order = (Order) myIntent.getParcelableExtra("customizedOrder");
+        return order;
     }
 }
