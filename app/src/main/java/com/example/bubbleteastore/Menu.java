@@ -54,7 +54,7 @@ public class Menu extends AppCompatActivity {
         allTimeListLayout = new LinearLayoutManager(this);
         allTimeFavouriteList.setLayoutManager(allTimeListLayout);
 
-        listAllTimeFavAdapter = new ListAdapter(this, AllTimeList, product);
+        listAllTimeFavAdapter = new ListAdapter(AllTimeList, product);
         allTimeFavouriteList.setAdapter(listAllTimeFavAdapter);
     }
 
@@ -65,7 +65,7 @@ public class Menu extends AppCompatActivity {
         otherListLayout = new LinearLayoutManager(this);
         otherMenuList.setLayoutManager(otherListLayout);
 
-        listOtherMenuAdapter = new ListAdapter(this, otherMenu, product);
+        listOtherMenuAdapter = new ListAdapter(otherMenu, product);
         otherMenuList.setAdapter(listOtherMenuAdapter);
     }
 

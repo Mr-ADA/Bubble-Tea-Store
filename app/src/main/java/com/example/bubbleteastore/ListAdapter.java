@@ -17,12 +17,10 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
-    private Context context;
     private List<BubbleTea> listOfBubbleTea;
     private Product product;
 
-    public ListAdapter(Context context, List<BubbleTea> listOfBubbleTea, Product product){
-        this.context = context;
+    public ListAdapter(List<BubbleTea> listOfBubbleTea, Product product){
         this.listOfBubbleTea = listOfBubbleTea;
         this.product = product;
     }
@@ -39,13 +37,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         BubbleTea bbt;
         bbt = listOfBubbleTea.get(position);
+        int orderId = listOfBubbleTea.size();
         holder.iv_bbtPict.setImageResource(bbt.getImageSrc());
         holder.tv_bbtName.setText(bbt.getProductName());
         holder.tv_bbtPrice.setText("$"+ (int) bbt.getPrice());
         holder.cvMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Order order = new Order(bbt);
+                Order order = new Order(orderId, bbt);
                 product.addOrder(order);
                 Log.d("TEST_ORDER", "ORDER SIZE: " + product.getOrderList().size());
             }

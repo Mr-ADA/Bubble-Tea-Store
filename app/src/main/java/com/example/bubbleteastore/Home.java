@@ -37,8 +37,6 @@ public class Home extends AppCompatActivity {
         initMenu();
         goToMenu();
         createRecyclerView();
-        Order myOrder = getBBTCustomization();
-        changeOrderList(myOrder);
         goToConfirmation();
     }
 
@@ -102,32 +100,10 @@ public class Home extends AppCompatActivity {
         confirmationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("BBT Details", bbtOrders.get(0).getIceLevel() + " " + bbtOrders.get(0).getSugarLevel() + " " + bbtOrders.get(0).getSize() + " ");
                 Intent orderIntent = new Intent(Home.this, ConfirmOrder.class);
                 startActivity(orderIntent);
             }
         });
-    }
-
-    private void changeOrderList(Order order){
-        for(Order currentOrder: bbtOrders){
-            if(currentOrder == order){
-                currentOrder = order;
-            }
-        }
-
-        for(Order currentOrder: bbtOrders){
-            Log.d("Orders", "Orders: " +
-                    currentOrder.getBbt().getProductName()+"\n"+
-                    currentOrder.getQuantity()+"\n"+
-                    currentOrder.getIceLevel()+"\n"+
-                    currentOrder.getSize()+"\n"+
-                    currentOrder.getSugarLevel()+"\n");
-        }
-    }
-
-    private Order getBBTCustomization(){
-        Intent myIntent = getIntent();
-        Order order = (Order) myIntent.getParcelableExtra("customizedOrder");
-        return order;
     }
 }

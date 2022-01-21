@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class ConfirmOrder extends AppCompatActivity {
         myOrdersTable.setStretchAllColumns(true);
 
         for(Order myOrder: listOfOrders){
+            BubbleTea bbt = myOrder.getBbt();
             String name = myOrder.getBbt().getProductName();
             double pricePerUnit = myOrder.getBbt().getPrice();
             int quantity = myOrder.getQuantity();
@@ -55,6 +57,8 @@ public class ConfirmOrder extends AppCompatActivity {
             newRow.addView(tvProductPrice);
 
             myOrdersTable.addView(newRow);
+
+            Log.d("Order Details", "BBT Details" + myOrder.getIceLevel() + " " + myOrder.getIceLevel() + " " + myOrder.getSugarLevel());
         }
     }
 
